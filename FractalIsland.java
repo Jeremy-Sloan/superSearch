@@ -89,46 +89,46 @@ public class FractalIsland extends JPanel {
 		JFrame frame = new JFrame("Fractal Island");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JPanel mundo = new JPanel();
-		JPanel submundo1 = new JPanel();
-		JPanel submundo2 = new JPanel();
+		JPanel mainPanel = new JPanel();
+		JPanel subPanel1 = new JPanel();
+		JPanel subPanel2 = new JPanel();
 		JTextField field1 = new JTextField("5");
 		JTextField field2 = new JTextField("5");
 
-		frame.add(mundo);
-		mundo.add(submundo1);
-		mundo.add(submundo2);
+		frame.add(mainPanel);
+		mainPanel.add(subPanel1);
+		mainPanel.add(subPanel2);
 
-		submundo1.add(new FractalIsland(5, 5));
+		subPanel1.add(new FractalIsland(5, 5));
 
 		JButton button1 = new JButton("INITIALIZE");
 		JLabel question = new JLabel("Size of N");
 		JLabel depth = new JLabel("Depth");
 
-		submundo2.add(question);
-		submundo2.add(field1);
-		submundo2.add(depth);
-		submundo2.add(field2);
-		submundo2.add(button1);
+		subPanel2.add(question);
+		subPanel2.add(field1);
+		subPanel2.add(depth);
+		subPanel2.add(field2);
+		subPanel2.add(button1);
 
 		frame.pack();
 		frame.setVisible(true);
 
-		mundo.setLayout(new GridBagLayout());
-		mundo.setBackground(Color.white);
-		submundo2.setLayout(new BoxLayout(submundo2, BoxLayout.Y_AXIS));
-		submundo1.setBackground(Color.white);
-		submundo2.setBackground(Color.white);
+		mainPanel.setLayout(new GridBagLayout());
+		mainPanel.setBackground(Color.white);
+		subPanel2.setLayout(new BoxLayout(subPanel2, BoxLayout.Y_AXIS));
+		subPanel1.setBackground(Color.white);
+		subPanel2.setBackground(Color.white);
 
 		button1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				submundo1.removeAll();
-				submundo1.updateUI();
+				subPanel1.removeAll();
+				subPanel1.updateUI();
 				String field1text = field1.getText();
 				int d = Integer.parseInt(field1text);
 				String field2text = field2.getText();
 				int f = Integer.parseInt(field2text);
-				submundo1.add(new FractalIsland(d, f));
+				subPanel1.add(new FractalIsland(d, f));
 			}
 		});
 	} // main
