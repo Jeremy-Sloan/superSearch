@@ -1,5 +1,4 @@
-package fractalIsland;
-
+package superSearch;
 public class Node<T> {
 	private T element;
 	private Node<T> next;
@@ -28,6 +27,4 @@ public class Node<T> {
 	public boolean hasNext() {
 		return next != null;
 	}
-	
-
 }
