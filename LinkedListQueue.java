@@ -1,4 +1,4 @@
-package fractalIsland;
+package superSearch;
 
 public class LinkedListQueue<T> implements Queue<T> {
 	private Node<T> front;

@@ -1,4 +1,5 @@
-# fractalisland
-Permutations of fractals based on user input.
+# superSearch
+Analyzes two separate text files concurrently.
 
-User instantiates the degree and depth of a randomly generated fractal into a JAVA GUI. 
+Opens two .txt files simultaneously and allows the users to sort alphabetically or by phrase-occurence of size-N phrases. 
+Useful for comparing authors. 

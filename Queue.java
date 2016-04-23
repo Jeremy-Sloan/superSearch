@@ -1,5 +1,4 @@
-package fractalIsland;
-
+package superSearch;
 public interface Queue<T> {
 	public void add(T element);
 
