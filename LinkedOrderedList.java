@@ -1,4 +1,5 @@
 package superSearch;
+
 import java.util.Iterator;
 
 public class LinkedOrderedList<T extends Comparable> implements OrderedList<T> {
