@@ -138,7 +138,7 @@ public class superSearch extends JPanel implements ActionListener {
 	}
 
 	public static void main(String[] arg) {
-		JFrame frame = new JFrame("BinaryCountTree");
+		JFrame frame = new JFrame("superSearch");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(new superSearch());
 		frame.pack();
