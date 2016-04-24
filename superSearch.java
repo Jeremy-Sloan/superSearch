@@ -119,7 +119,7 @@ public class superSearch extends JPanel implements ActionListener {
 			StringBuilder sb = new StringBuilder();
 			while (scan.hasNext()) {
 				String gorgon = scan.next() + " ";
-				gorgon = gorgon.replaceAll("\\p{P}", "").toLowerCase();
+				gorgon = gorgon.replaceAll("\\p{P}", "").replaceAll("^[ \r\t\n]*$", "").toLowerCase();
 				sb.append(gorgon);
 			}
 
