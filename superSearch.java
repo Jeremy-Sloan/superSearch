@@ -22,8 +22,7 @@ public class superSearch extends JPanel implements ActionListener {
 	public superSearch() {
 		JPanel upperPanel = new JPanel();
 		JPanel subpanel = new JPanel();
-
-		width = 800;
+		width = 1000;
 		height = 600;
 		nField = new JTextField("2", 3);
 		alpha = new JRadioButton("Alphabetical");
@@ -43,7 +42,6 @@ public class superSearch extends JPanel implements ActionListener {
 
 		setLayout(new BorderLayout());
 		subpanel.setLayout(new BoxLayout(subpanel, BoxLayout.X_AXIS));
-
 		textarea0.setPreferredSize(new Dimension(width / 2, height * 3 / 5));
 		textarea1.setPreferredSize(new Dimension(width / 2, height * 3 / 5));
 		setPreferredSize(new Dimension(width, height));
