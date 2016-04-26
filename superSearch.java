@@ -34,8 +34,17 @@ public class superSearch extends JPanel implements ActionListener {
 		label3 = new JLabel("Match Score ");
 		match = new JButton("Compute match");
 		textarea0 = new TextArea("", 0, 0, TextArea.SCROLLBARS_VERTICAL_ONLY);
-		textarea1 = new TextArea("", 0, 0, TextArea.SCROLLBARS_VERTICAL_ONLY);	
+		textarea1 = new TextArea("", 0, 0, TextArea.SCROLLBARS_VERTICAL_ONLY);
+
+		setLayout(new BorderLayout());
+		subpanel.setLayout(new BoxLayout(subpanel, BoxLayout.X_AXIS));
+		textarea0.setPreferredSize(new Dimension(width / 2, height * 3 / 5));
+		textarea1.setPreferredSize(new Dimension(width / 2, height * 3 / 5));
+		setPreferredSize(new Dimension(width, height));
 		
+		open0.addActionListener(this);
+		open1.addActionListener(this);
+		match.addActionListener(this);
 		upperPanel.add(alpha);
 		upperPanel.add(open0);
 		upperPanel.add(label0);
@@ -49,14 +58,6 @@ public class superSearch extends JPanel implements ActionListener {
 		subpanel.add(textarea1);
 		add(subpanel, BorderLayout.CENTER);
 		add(upperPanel, BorderLayout.NORTH);
-		open0.addActionListener(this);
-		open1.addActionListener(this);
-		match.addActionListener(this);
-		setLayout(new BorderLayout());
-		subpanel.setLayout(new BoxLayout(subpanel, BoxLayout.X_AXIS));
-		textarea0.setPreferredSize(new Dimension(width / 2, height * 3 / 5));
-		textarea1.setPreferredSize(new Dimension(width / 2, height * 3 / 5));
-		setPreferredSize(new Dimension(width, height));
 	}
 
 	public void actionPerformed(ActionEvent event) {
