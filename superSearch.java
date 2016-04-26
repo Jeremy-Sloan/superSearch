@@ -27,25 +27,15 @@ public class superSearch extends JPanel implements ActionListener {
 		nField = new JTextField("2", 3);
 		alpha = new JRadioButton("Alphabetical");
 		open0 = new JButton("Open FIle");
-		open0.addActionListener(this);
 		label0 = new JLabel("No file selected");
 		open1 = new JButton("Open File");
-		open1.addActionListener(this);
 		label1 = new JLabel("No file selected");
 		label2 = new JLabel("Size of N ");
 		label3 = new JLabel("Match Score ");
 		match = new JButton("Compute match");
-		match.addActionListener(this);
-
 		textarea0 = new TextArea("", 0, 0, TextArea.SCROLLBARS_VERTICAL_ONLY);
-		textarea1 = new TextArea("", 0, 0, TextArea.SCROLLBARS_VERTICAL_ONLY);
-
-		setLayout(new BorderLayout());
-		subpanel.setLayout(new BoxLayout(subpanel, BoxLayout.X_AXIS));
-		textarea0.setPreferredSize(new Dimension(width / 2, height * 3 / 5));
-		textarea1.setPreferredSize(new Dimension(width / 2, height * 3 / 5));
-		setPreferredSize(new Dimension(width, height));
-
+		textarea1 = new TextArea("", 0, 0, TextArea.SCROLLBARS_VERTICAL_ONLY);	
+		
 		upperPanel.add(alpha);
 		upperPanel.add(open0);
 		upperPanel.add(label0);
@@ -57,9 +47,16 @@ public class superSearch extends JPanel implements ActionListener {
 		upperPanel.add(label3);
 		subpanel.add(textarea0);
 		subpanel.add(textarea1);
-
 		add(subpanel, BorderLayout.CENTER);
 		add(upperPanel, BorderLayout.NORTH);
+		open0.addActionListener(this);
+		open1.addActionListener(this);
+		match.addActionListener(this);
+		setLayout(new BorderLayout());
+		subpanel.setLayout(new BoxLayout(subpanel, BoxLayout.X_AXIS));
+		textarea0.setPreferredSize(new Dimension(width / 2, height * 3 / 5));
+		textarea1.setPreferredSize(new Dimension(width / 2, height * 3 / 5));
+		setPreferredSize(new Dimension(width, height));
 	}
 
 	public void actionPerformed(ActionEvent event) {
@@ -76,7 +73,6 @@ public class superSearch extends JPanel implements ActionListener {
 			return;
 		File file = chooser.getSelectedFile();
 		String filename = file.getName();
-
 		SuperString[] array = loadfile(file);
 
 		if (!alpha.isSelected())
@@ -100,21 +96,16 @@ public class superSearch extends JPanel implements ActionListener {
 				sb.append(token + "\n");
 			textarea1.setText(sb.toString());
 		}
-
 	}
 
 	private SuperString[] loadfile(File file) {
-
 		BinaryCountTree<SuperString> tree = new BinaryCountTree<SuperString>();
 		try {
-			Scanner scan = new Scanner(file);
-
-			// --------------------------------------------------
-
-			n = nField.getText();
-			Integer limit = Integer.parseInt(n);
-
 			StringBuilder sb = new StringBuilder();
+			Integer limit = Integer.parseInt(n);
+			Scanner scan = new Scanner(file);
+			n = nField.getText();
+
 			while (scan.hasNext()) {
 				String gorgon = scan.next() + " ";
 				gorgon = gorgon.replaceAll("\\p{P}", "").replaceAll("^[ \r\t\n]*$", "").toLowerCase();
@@ -133,7 +124,6 @@ public class superSearch extends JPanel implements ActionListener {
 				}
 			}
 
-			// ---------------------------------------------
 			scan.close();
 		} catch (FileNotFoundException err) {
 			System.err.println("File read error");
