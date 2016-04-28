@@ -5,6 +5,8 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.util.Scanner;
 import java.io.*;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Arrays;
 
 @SuppressWarnings("serial")
@@ -41,7 +43,7 @@ public class superSearch extends JPanel implements ActionListener {
 		textarea0.setPreferredSize(new Dimension(width / 2, height * 3 / 5));
 		textarea1.setPreferredSize(new Dimension(width / 2, height * 3 / 5));
 		setPreferredSize(new Dimension(width, height));
-		
+
 		open0.addActionListener(this);
 		open1.addActionListener(this);
 		match.addActionListener(this);
@@ -62,9 +64,10 @@ public class superSearch extends JPanel implements ActionListener {
 
 	public void actionPerformed(ActionEvent event) {
 		if (event.getSource() == match) {
+			NumberFormat formatter = new DecimalFormat("#.###");
 			double giga = (MatchTools.match(array0, array1));
-			String gorgon = String.valueOf(giga);
-			label3.setText(gorgon + " ");
+			String taco = formatter.format(giga);
+			label3.setText(taco + " ");
 			return;
 		}
 
@@ -74,6 +77,7 @@ public class superSearch extends JPanel implements ActionListener {
 			return;
 		File file = chooser.getSelectedFile();
 		String filename = file.getName();
+
 		SuperString[] array = loadfile(file);
 
 		if (!alpha.isSelected())
@@ -97,15 +101,16 @@ public class superSearch extends JPanel implements ActionListener {
 				sb.append(token + "\n");
 			textarea1.setText(sb.toString());
 		}
+
 	}
 
 	private SuperString[] loadfile(File file) {
 		BinaryCountTree<SuperString> tree = new BinaryCountTree<SuperString>();
 		try {
 			StringBuilder sb = new StringBuilder();
-			Integer limit = Integer.parseInt(n);
 			Scanner scan = new Scanner(file);
 			n = nField.getText();
+			Integer limit = Integer.parseInt(n);
 
 			while (scan.hasNext()) {
 				String gorgon = scan.next() + " ";
