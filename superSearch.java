@@ -65,9 +65,9 @@ public class superSearch extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		if (event.getSource() == match) {
 			NumberFormat formatter = new DecimalFormat("#.###");
-			double giga = (MatchTools.match(array0, array1));
-			String taco = formatter.format(giga);
-			label3.setText(taco + " ");
+			double result = (MatchTools.match(array0, array1));
+			String formattedResult = formatter.format(result);
+			label3.setText(formattedResult + " ");
 			return;
 		}
 
@@ -113,9 +113,9 @@ public class superSearch extends JPanel implements ActionListener {
 			Integer limit = Integer.parseInt(n);
 
 			while (scan.hasNext()) {
-				String gorgon = scan.next() + " ";
-				gorgon = gorgon.replaceAll("\\p{P}", "").replaceAll("^[ \r\t\n]*$", "").toLowerCase();
-				sb.append(gorgon);
+				String scanned = scan.next() + " ";
+				scanned = scanned.replaceAll("\\p{P}", "").replaceAll("^[ \r\t\n]*$", "").toLowerCase();
+				sb.append(scanned);
 			}
 
 			String[] superArray = sb.toString().split(" ");
